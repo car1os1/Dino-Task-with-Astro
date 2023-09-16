@@ -1,0 +1,56 @@
+---
+
+---
+
+<div class="sm:mx-7 md:mx-7 p-9 bg-slate-500 py-10 rounded-lg">
+    <div>
+        <h2 class="text-white font-bold text-lg">To-Do List</h2>
+
+        <div
+            class="flex flex-row justify-around mt-3 bg-slate-100 rounded-full mb-10"
+        >
+            <label class="relative block w-full">
+                <input
+                    id="input-box"
+                    class="sm:text-sm outline-none bg-transparent w-5/6 p-3 font-medium rounded-full"
+                    placeholder="Add your task"
+                    type="text"
+                />
+            </label>
+            <button
+                id="add-button"
+                class="pl-7 pr-7 bg-red-400 border-1 rounded-full outline-none border-red-400 font-bold text-white"
+            >
+                Add
+            </button>
+        </div>
+        <div class="px-10 relative">
+            <ul id="list-container">
+                <!--    <li class="my-2 cursor-pointer relative pl-2">task2</li>
+                <li class="my-2 cursor-pointer relative">task3</li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addTask() {
+        const inputBox = document.getElementById(
+            "input-box",
+        ) as HTMLInputElement;
+        const listContainer = document.getElementById(
+            "list-container",
+        ) as HTMLElement;
+
+        if (inputBox.value === "") {
+            alert("you must write something");
+        } else {
+            let li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            listContainer.appendChild(li);
+        }
+    }
+
+    const addButton = document.getElementById("add-button");
+    addButton?.addEventListener("click", addTask);
+</script>
