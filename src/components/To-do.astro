@@ -12,7 +12,7 @@
             <label class="relative block w-full">
                 <input
                     id="input-box"
-                    class="sm:text-sm outline-none bg-transparent w-5/6 p-3 font-medium rounded-full"
+                    class="sm:text-sm outline-none bg-transparent w-5/6 p-3 font-medium rounded-full text-black"
                     placeholder="Add your task"
                     type="text"
                 />
@@ -25,7 +25,7 @@
             </button>
         </div>
         <div class="px-10 relative">
-            <ul id="list-container">
+            <ul id="list-container" class="pt-3">
                 <!--    <li class="my-2 cursor-pointer relative pl-2">task2</li>
                 <li class="my-2 cursor-pointer relative">task3</li> -->
             </ul>
@@ -43,12 +43,28 @@
         ) as HTMLElement;
 
         if (inputBox.value === "") {
-            alert("you must write something");
+            alert("You must write something");
         } else {
             let li = document.createElement("li");
             li.innerHTML = inputBox.value;
+
+            // Agregar un eventListener de clic al elemento li
+            li.addEventListener("click", function () {
+                li.classList.toggle("checked");
+            });
+
+            let span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+
+            span.addEventListener("click", function () {
+                listContainer.removeChild(li);
+            });
+
+            li.appendChild(span);
             listContainer.appendChild(li);
         }
+
+        inputBox.value = "";
     }
 
     const addButton = document.getElementById("add-button");

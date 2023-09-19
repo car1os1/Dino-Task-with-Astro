@@ -48,13 +48,38 @@ const { title } = Astro.props;
 		content: "";
 		position: absolute;
 		height: 28px;
-		width: 28;
+		width: 28px; /* Agrega un valor para la propiedad width */
 		border-radius: 50%;
-
 		background-image: url(/unchecked.png);
 		background-size: cover;
 		background-position: center;
-		top: 12px;
-		left: 8%;
+		top: 10px;
+		left: 0%;
+	}
+
+	ul li.checked {
+		color: #555;
+		text-decoration: line-through;
+	}
+	ul li.checked::before {
+		background-image: url(/checked.png);
+	}
+
+	ul li span {
+		position: absolute;
+		right: 0;
+		top: 10px;
+		width: 40px;
+		height: 40px;
+		color: #13151a;
+		font-weight: bold;
+		font-size: 22px;
+		color: #555;
+		line-height: 140%;
+		text-align: center;
+		border-radius: 50%;
+	}
+	ul li span:hover {
+		background: #e55604;
 	}
 </style>
