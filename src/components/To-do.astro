@@ -2,30 +2,30 @@
 
 ---
 
-<div class="sm:mx-7 md:mx-7 p-9 bg-slate-500 py-10 rounded-lg">
+<div class="sm:mx-7 md:mx-7 p-7 bg-slate-500 py-5 rounded-lg">
     <div>
         <h2 class="text-white font-bold text-lg">To-Do List</h2>
 
         <div
-            class="flex flex-row justify-around mt-3 bg-slate-100 rounded-full mb-10"
+            class="flex flex-row justify-around mt-3 bg-slate-100 rounded-full mb-5"
         >
             <label class="relative block w-full">
                 <input
                     id="input-box"
-                    class="sm:text-sm outline-none bg-transparent w-5/6 p-3 font-medium rounded-full text-black"
+                    class="sm:text-sm outline-none bg-transparent w-5/6 p-3 font-medium rounded-full text-black normal-case"
                     placeholder="Add your task"
                     type="text"
                 />
             </label>
             <button
                 id="add-button"
-                class="pl-7 pr-7 bg-red-400 border-1 rounded-full outline-none border-red-400 font-bold text-white"
+                class="pl-7 pr-7 bg-[#E55604] border-1 rounded-full outline-none border-[#E55604] font-bold text-white"
             >
                 Add
             </button>
         </div>
         <div class="px-10 relative">
-            <ul id="list-container" class="pt-3">
+            <ul id="list-container" class="pt-2 font-bold">
                 <!--    <li class="my-2 cursor-pointer relative pl-2">task2</li>
                 <li class="my-2 cursor-pointer relative">task3</li> -->
             </ul>
@@ -47,20 +47,22 @@
         } else {
             let li = document.createElement("li");
             li.innerHTML = inputBox.value;
+            li.className = "my-2 cursor-pointer relative pl-2"; // Aplica clases de estilo
 
             // Agregar un eventListener de clic al elemento li
             li.addEventListener("click", function () {
-                li.classList.toggle("checked");
+                li.classList.toggle("checked"); // Alternar la clase checked al hacer clic en el li
             });
 
             let span = document.createElement("span");
             span.innerHTML = "\u00d7";
+            span.className = "close"; // Aplica clases de estilo al botón "x"
 
             span.addEventListener("click", function () {
-                listContainer.removeChild(li);
+                listContainer.removeChild(li); // Eliminar el elemento li al hacer clic en el span
             });
 
-            li.appendChild(span);
+            li.appendChild(span); // Agregar el botón "x" al elemento li
             listContainer.appendChild(li);
         }
 

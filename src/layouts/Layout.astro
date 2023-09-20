@@ -44,42 +44,67 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	ul li {
+		margin-top: 20px; /* Espacio superior entre elementos */
+		margin-bottom: 20px; /* Espacio inferior entre elementos */
+		padding: 5px; /* Espacio interno entre el texto y el borde del elemento li */
+	}
+
 	ul li::before {
 		content: "";
 		position: absolute;
 		height: 28px;
-		width: 28px; /* Agrega un valor para la propiedad width */
+		width: 28px;
 		border-radius: 50%;
-		background-image: url(/unchecked.png);
 		background-size: cover;
 		background-position: center;
-		top: 10px;
-		left: 0%;
+		left: -25px;
 	}
 
-	ul li.checked {
-		color: #555;
-		text-decoration: line-through;
-	}
 	ul li.checked::before {
 		background-image: url(/checked.png);
 	}
 
+	ul li:not(.checked)::before {
+		background-image: url(/unchecked.png);
+	}
+
 	ul li span {
 		position: absolute;
-		right: 0;
-		top: 10px;
+		right: -20px;
+		padding-top: 12px;
+		top: 1px;
+		text-align: center;
 		width: 40px;
 		height: 40px;
-		color: #13151a;
+		color: #edeff4;
 		font-weight: bold;
 		font-size: 22px;
 		color: #555;
-		line-height: 140%;
+		line-height: 40%;
+		text-align: center;
+		border-radius: 50%;
+		background-color: #e55604;
+	}
+
+	ul li span:hover {
+		background: #e55604;
+	}
+	ul li.close {
+		position: absolute;
+
+		top: 5px;
+		width: 40px;
+		height: 40px;
+		font-weight: bold;
+		font-size: 22px;
+		color: #555;
+		line-height: 10%;
 		text-align: center;
 		border-radius: 50%;
 	}
-	ul li span:hover {
+
+	ul li.close:hover {
 		background: #e55604;
 	}
 </style>
